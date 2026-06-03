@@ -1,0 +1,14 @@
+# Cloudflare Pages / Netlify _redirects
+# These thin city pages consolidate to Durham Region hub
+/ajax-insurance/           /durham-region-insurance/    301
+/ajax-insurance            /durham-region-insurance/    301
+/pickering-insurance/      /durham-region-insurance/    301
+/pickering-insurance       /durham-region-insurance/    301
+/clarington-insurance/     /durham-region-insurance/    301
+/clarington-insurance      /durham-region-insurance/    301
+/courtice-insurance/       /durham-region-insurance/    301
+/courtice-insurance        /durham-region-insurance/    301
+/brooklin-insurance/       /durham-region-insurance/    301
+/brooklin-insurance        /durham-region-insurance/    301
+/bowmanville-insurance/    /durham-region-insurance/    301
+/bowmanville-insurance     /durham-region-insurance/    301
