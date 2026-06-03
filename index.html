@@ -240,7 +240,7 @@
       <p style="font-size:19px;color:rgba(255,255,255,.80);line-height:1.65;margin-bottom:36px;max-width:520px;font-weight:400">
         Independent, RIBO-licensed brokers helping families and businesses across Durham Region and Ontario compare coverage through trusted Canadian markets.
       </p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px">
+      <div class="markets-strip" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px">
         <a href="./get-a-quote/index.html" class="btn btn-teal" style="font-size:15px;padding:14px 28px">Get a Quote &#8594;</a>
         <a href="tel:9056685823" class="btn btn-outline-white" style="font-size:15px;padding:14px 24px">Speak With a Broker</a>
       </div>
@@ -294,34 +294,73 @@
 <!-- Personal vs Commercial Split -->
 <section class="section" style="background:#fff;padding-top:72px;padding-bottom:72px">
   <div class="w">
-    <div style="text-align:center;margin-bottom:48px">
+    <div style="text-align:center;margin-bottom:40px">
       <div class="tag">What we cover</div>
       <h2 class="h2">Personal, commercial &amp; farm insurance across Ontario.</h2>
     </div>
+
+    <!-- Desktop: keep original two-col boxes; Mobile: tab switcher -->
+    <div class="coverage-tabs-mobile">
+      <div style="display:flex;border:2px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px">
+        <button onclick="switchTab(this,'tab-personal')" class="cov-tab active" style="flex:1;padding:12px;font-family:var(--h);font-size:14px;font-weight:700;border:none;background:var(--navy);color:#fff;cursor:pointer">Personal</button>
+        <button onclick="switchTab(this,'tab-commercial')" class="cov-tab" style="flex:1;padding:12px;font-family:var(--h);font-size:14px;font-weight:700;border:none;background:#fff;color:var(--navy);cursor:pointer">Commercial</button>
+      </div>
+      <div id="tab-personal" class="cov-tab-panel" style="background:var(--navy);border-radius:14px;padding:24px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px">Personal Insurance</div>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:16px">We compare 30+ markets for your home, car, farm, and specialty needs.</p>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <a href="./personal-insurance/car-auto-insurance/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;font-weight:600">Car &amp; Auto <span style="opacity:.5">›</span></a>
+          <a href="./personal-insurance/home-property-insurance/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;font-weight:600">Home &amp; Property <span style="opacity:.5">›</span></a>
+          <a href="./personal-insurance/farm-insurance/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;font-weight:600">Farm Insurance <span style="opacity:.5">›</span></a>
+          <a href="./personal-insurance/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(37,169,183,.2);color:var(--teal-2);text-decoration:none;font-size:13px;font-weight:700">All personal lines → <span></span></a>
+        </div>
+      </div>
+      <div id="tab-commercial" class="cov-tab-panel" style="display:none;background:var(--navy-dark);border-radius:14px;padding:24px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px">Commercial Insurance</div>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:16px">Coverage built around your contracts, vehicles, and claims.</p>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <a href="./commercial/contractors/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;font-weight:600">Contractor &amp; Trades <span style="opacity:.5">›</span></a>
+          <a href="./commercial/fleet-insurance/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;font-weight:600">Fleet Insurance <span style="opacity:.5">›</span></a>
+          <a href="./commercial/commercial-general-liability/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;font-weight:600">General Liability <span style="opacity:.5">›</span></a>
+          <a href="./commercial/index.html" style="display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:10px;background:rgba(37,169,183,.2);color:var(--teal-2);text-decoration:none;font-size:13px;font-weight:700">All commercial lines → <span></span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop: original two-col boxes -->
+    <div class="coverage-boxes-desktop">
     <div class="grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(7,29,51,0.12)">
       <div style="background:#174F8A;padding:44px 40px;display:flex;flex-direction:column">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px">Personal Insurance</div>
         <h3 style="font-family:var(--s);font-size:clamp(22px,2.5vw,30px);color:#fff;margin-bottom:14px;letter-spacing:-0.02em;line-height:1.15">Home, auto, farm and specialty.</h3>
         <p style="font-size:14px;color:rgba(255,255,255,0.70);line-height:1.75;margin-bottom:28px">We compare 30+ markets and specialty programs for your home, car, farm, collector vehicle, boat, or cottage. Your profile - not a price list.</p>
-        <div style="display:flex;flex-direction:column;gap:0;margin-bottom:32px;border-top:1px solid rgba(255,255,255,0.12)"><a href="./personal-insurance/car-auto-insurance/index.html" class="split-link">Car &amp; Auto Insurance</a><a href="./personal-insurance/home-property-insurance/index.html" class="split-link">Home &amp; Property Insurance</a><a href="./personal-insurance/farm-insurance/index.html" class="split-link">Farm Insurance</a><a href="./personal-insurance/motorcycle-insurance/index.html" class="split-link">Motorcycle &amp; Marine</a><a href="./personal-insurance/collector-auto/index.html" class="split-link">Collector Auto</a></div>
-        <div style="margin-top:auto">
-          <a href="./personal-insurance/index.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);font-family:var(--h);font-size:13px;font-weight:700;padding:12px 22px;border-radius:9px;text-decoration:none">Compare Home &amp; Auto &#8594;</a>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:32px">
+          <a href="./personal-insurance/car-auto-insurance/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600;transition:background 0.15s">Car &amp; Auto Insurance<span style="opacity:0.4">›</span></a>
+          <a href="./personal-insurance/home-property-insurance/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Home &amp; Property Insurance<span style="opacity:0.4">›</span></a>
+          <a href="./personal-insurance/farm-insurance/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Farm Insurance<span style="opacity:0.4">›</span></a>
+          <a href="./personal-insurance/motorcycle-insurance/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Motorcycle &amp; Marine<span style="opacity:0.4">›</span></a>
+          <a href="./personal-insurance/collector-auto/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Collector Auto<span style="opacity:0.4">›</span></a>
         </div>
+        <a href="./personal-insurance/index.html" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--teal-2);text-decoration:none;margin-top:auto">Compare Home &amp; Auto →</a>
       </div>
-      <div style="background:var(--navy);padding:44px 40px;display:flex;flex-direction:column;border-left:3px solid var(--teal)">
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:18px">Commercial Insurance</div>
+      <div style="background:#0a1e35;padding:44px 40px;display:flex;flex-direction:column">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px">Commercial Insurance</div>
         <h3 style="font-family:var(--s);font-size:clamp(22px,2.5vw,30px);color:#fff;margin-bottom:14px;letter-spacing:-0.02em;line-height:1.15">Contractors, fleet, liability and beyond.</h3>
         <p style="font-size:14px;color:rgba(255,255,255,0.70);line-height:1.75;margin-bottom:28px">Commercial coverage built around how your business actually operates - contracts, certificates, and claims included.</p>
-        <div style="display:flex;flex-direction:column;gap:0;margin-bottom:32px;border-top:1px solid rgba(255,255,255,0.12)"><a href="./commercial/contractors/index.html" class="split-link">Contractor Insurance in Ontario</a><a href="./commercial/fleet-insurance/index.html" class="split-link">Fleet Insurance for Ontario Businesses</a><a href="./commercial/commercial-general-liability/index.html" class="split-link">Commercial General Liability</a><a href="./commercial/professional-liability-eo/index.html" class="split-link">Professional Liability &amp; E&amp;O</a><a href="./commercial/commercial-property-insurance/index.html" class="split-link">Commercial Property Insurance</a></div>
-        <div style="margin-top:auto">
-          <a href="./commercial/index.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-family:var(--h);font-size:13px;font-weight:700;padding:12px 22px;border-radius:9px;text-decoration:none">Request a Commercial Review &#8594;</a>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:32px">
+          <a href="./commercial/contractors/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Contractor Insurance in Ontario<span style="opacity:0.4">›</span></a>
+          <a href="./commercial/fleet-insurance/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Fleet Insurance for Ontario Businesses<span style="opacity:0.4">›</span></a>
+          <a href="./commercial/commercial-general-liability/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Commercial General Liability<span style="opacity:0.4">›</span></a>
+          <a href="./commercial/professional-liability-eo/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Professional Liability &amp; E&amp;O<span style="opacity:0.4">›</span></a>
+          <a href="./commercial/commercial-property-insurance/index.html" style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.90);text-decoration:none;font-size:14px;font-weight:600">Commercial Property Insurance<span style="opacity:0.4">›</span></a>
         </div>
+        <a href="./commercial/index.html" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--teal-2);text-decoration:none;margin-top:auto">Request a Commercial Review →</a>
       </div>
     </div>
+    </div>
+
   </div>
 </section>
-
-<!-- Why Bowman & Gibson -->
 <section class="section section-blue-grey">
   <div class="w">
     <div class="grid-sidebar-left" style="display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center">
@@ -636,35 +675,31 @@
 <script src="./assets/js/main.js" defer></script>
 
 <!-- Mobile sticky CTA bar -->
-<div id="mobile-cta-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -8px 32px rgba(7,24,39,.25)">
+<div id="mobile-cta-bar" class="mobile-sticky-cta" style="position:fixed;bottom:0;left:0;right:0;z-index:200;padding:12px 16px;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -8px 32px rgba(7,24,39,.25)">
   <div style="display:flex;gap:8px">
-    <a href="./get-a-quote/index.html" style="flex:1;display:flex;align-items:center;justify-content:center;background:#f59e0b;color:#1c1100;font-family:var(--h);font-size:14px;font-weight:760;padding:12px;border-radius:12px;text-decoration:none;gap:6px;letter-spacing:-.01em">
+    <a href="./get-a-quote/index.html" style="flex:1;display:flex;align-items:center;justify-content:center;background:#f59e0b;color:#1a0e00;font-family:var(--h);font-size:14px;font-weight:800;padding:13px 12px;border-radius:12px;text-decoration:none;gap:6px;letter-spacing:-.01em">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
       Get a Quote
     </a>
-    <a href="tel:9056685823" style="display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.15);color:#fff;font-family:var(--h);font-size:14px;font-weight:760;padding:12px 20px;border-radius:12px;text-decoration:none;gap:6px;border:1.5px solid rgba(255,255,255,.4)">
+    <a href="tel:9056685823" style="display:flex;align-items:center;justify-content:center;background:transparent;color:#fff;font-family:var(--h);font-size:14px;font-weight:700;padding:13px 20px;border-radius:12px;text-decoration:none;gap:6px;border:2px solid rgba(255,255,255,.5)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 11a19.79 19.79 0 01-3-8.54A2 2 0 012.27 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
       Call
     </a>
   </div>
 </div>
-<script>
-(function(){
-  var bar = document.getElementById('mobile-cta-bar');
-  if(!bar) return;
-  function checkMobile(){
-    if(window.innerWidth <= 768){
-      bar.style.display = 'block';
-      document.body.style.paddingBottom = '76px';
-    } else {
-      bar.style.display = 'none';
-      document.body.style.paddingBottom = '';
-    }
-  }
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
-})();
-</script>
 
+
+
+<script>
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.cov-tab').forEach(function(b){
+    b.style.background='#fff';b.style.color='var(--navy)';
+  });
+  btn.style.background='var(--navy)';btn.style.color='#fff';
+  document.querySelectorAll('.cov-tab-panel').forEach(function(p){p.style.display='none';});
+  var panel=document.getElementById(panelId);
+  if(panel)panel.style.display='block';
+}
+</script>
 </body>
 </html>
