@@ -588,17 +588,16 @@ table{width:100%;table-layout:fixed}
 }
 
 /* ── Mobile nav phone ───────────────────────────────── */
-.nav-mobile-tel{display:none}
+.nav-mobile-li{display:none}
+.nav-mobile-tel{display:flex;align-items:center;gap:10px;
+  padding:14px 16px;font-size:15px;font-weight:700;
+  color:var(--navy);text-decoration:none;
+  border-top:1px solid var(--border);
+  margin-top:8px;border-radius:10px;
+  background:var(--off)}
+.nav-mobile-tel svg{width:16px!important;height:16px!important;color:var(--teal);flex-shrink:0}
 @media(max-width:768px){
-  .nav-mobile-tel{
-    display:flex;align-items:center;gap:10px;
-    padding:14px 16px;font-size:15px;font-weight:700;
-    color:var(--navy);text-decoration:none;
-    border-top:1px solid var(--border);
-    margin-top:8px;border-radius:10px;
-    background:var(--off)
-  }
-  .nav-mobile-tel svg{width:16px;height:16px;color:var(--teal);flex-shrink:0}
+  .nav-mobile-li{display:list-item}
 }
 
 /* ── Review cards: hide extras on mobile ─────────── */
