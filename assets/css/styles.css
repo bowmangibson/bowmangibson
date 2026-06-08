@@ -329,18 +329,21 @@ img { max-width: 100%; height: auto }
   .nav-cta { display: none }
   .burger { display: flex !important }
 
-  /* Nav open state — full screen overlay */
+  /* Nav open state — full screen overlay (menu moved to body by JS) */
   .nav-links.open {
     display: flex !important;
     flex-direction: column !important;
     position: fixed !important;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #fff;
-    overflow-y: auto; overflow-x: hidden;
-    padding: 0 0 80px;
-    gap: 0;
-    z-index: 399;
-    box-shadow: 0 8px 40px rgba(7,24,39,.15)
+    top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #fff !important;
+    overflow-y: auto !important; overflow-x: hidden !important;
+    padding: 0 0 80px !important;
+    gap: 0 !important;
+    z-index: 9999 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
   }
   .nav-links.open li { width: 100%; list-style: none }
   .nav-links.open > li > a,
@@ -564,6 +567,10 @@ img { max-width: 100%; height: auto }
   }
   .mob-reviews [style*="Leave a Google Review"] { display: none !important }
   .mob-reviews .h2 { font-size: 20px !important }
+
+
+/* Prevent body scroll when nav is open */
+body.nav-open { overflow: hidden !important }
 
   /* Tighten section padding on mobile */
   .section { padding-top: 32px !important; padding-bottom: 32px !important }

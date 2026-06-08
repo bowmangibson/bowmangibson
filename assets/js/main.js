@@ -1,56 +1,74 @@
 (function(){
-  // ── Mobile burger + close button ──────────────────
-  var burger = document.getElementById('burger');
-  var menu   = document.getElementById('nav-menu');
+
+  // ── Mobile nav: detach menu from nav stacking context ──
+  var burger  = document.getElementById('burger');
+  var menu    = document.getElementById('nav-menu');
   var closeBtn = document.getElementById('nav-close');
 
+  // Where the menu lives in the DOM when closed
+  var menuParent   = menu ? menu.parentNode : null;
+  var menuNextSibling = menu ? menu.nextSibling : null;
+
   function openMenu() {
+    if (!menu) return;
+    // Move menu to body so it escapes nav stacking context
+    document.body.appendChild(menu);
     menu.classList.add('open');
-    burger.setAttribute('aria-expanded', true);
-    document.body.style.overflow = 'hidden';
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
   }
+
   function closeMenu() {
+    if (!menu) return;
     menu.classList.remove('open');
-    burger.setAttribute('aria-expanded', false);
-    document.body.style.overflow = '';
-    // Also collapse all open dd-wraps
-    menu.querySelectorAll('.dd-wrap.mob-open').forEach(function(li){
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+    // Collapse all open sub-menus
+    menu.querySelectorAll('.dd-wrap.mob-open').forEach(function(li) {
       li.classList.remove('mob-open');
     });
+    // Move menu back into nav
+    if (menuParent) {
+      if (menuNextSibling) {
+        menuParent.insertBefore(menu, menuNextSibling);
+      } else {
+        menuParent.appendChild(menu);
+      }
+    }
   }
 
   if (burger && menu) {
     burger.addEventListener('click', function() {
-      if (menu.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+      menu.classList.contains('open') ? closeMenu() : openMenu();
     });
-    if (closeBtn) { closeBtn.addEventListener('click', closeMenu); }
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-    // Close when any leaf link (non-parent) is tapped
-    menu.querySelectorAll('a:not(.dd-parent-link)').forEach(function(a) {
-      a.addEventListener('click', closeMenu);
+    // Close on any leaf link tap
+    menu.addEventListener('click', function(e) {
+      var link = e.target.closest('a:not(.dd-parent-link)');
+      if (link) closeMenu();
+    });
+
+    // Close on backdrop tap (click outside menu)
+    document.addEventListener('click', function(e) {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== burger) {
+        closeMenu();
+      }
     });
   }
 
-  // ── Mobile accordion: tap parent link to expand sub-menu ──
-  document.querySelectorAll('.dd-parent-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      // On mobile (menu is open overlay), intercept and toggle
-      if (menu && menu.classList.contains('open')) {
-        e.preventDefault();
-        var wrap = link.closest('.dd-wrap');
-        var isOpen = wrap.classList.contains('mob-open');
-        // Close all others
-        menu.querySelectorAll('.dd-wrap.mob-open').forEach(function(li){ li.classList.remove('mob-open'); });
-        if (!isOpen) { wrap.classList.add('mob-open'); }
-      }
-      // On desktop, let the link navigate normally
-    });
+  // ── Accordion: tap parent link to expand/collapse sub-menu ──
+  document.addEventListener('click', function(e) {
+    var parentLink = e.target.closest('.dd-parent-link');
+    if (!parentLink || !menu || !menu.classList.contains('open')) return;
+    e.preventDefault();
+    var wrap = parentLink.closest('.dd-wrap');
+    var isOpen = wrap.classList.contains('mob-open');
+    menu.querySelectorAll('.dd-wrap.mob-open').forEach(function(li) { li.classList.remove('mob-open'); });
+    if (!isOpen) wrap.classList.add('mob-open');
   });
 
-  // ── Desktop dropdowns (hover) ──────────────────────
-  // (unchanged - CSS handles hover state on desktop)
-
-  // ── FAQ accordion ─────────────────────────────────
+  // ── FAQ accordion ──────────────────────────────────
   document.querySelectorAll('.faq-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var item = btn.closest('.faq-item');
@@ -61,7 +79,7 @@
     });
   });
 
-  // ── Coverage tab switcher ──────────────────────────
+  // ── Coverage tab switcher ───────────────────────────
   window.switchTab = function(btn, tabId) {
     document.querySelectorAll('.cov-tab').forEach(function(b) {
       b.style.background = '#fff'; b.style.color = 'var(--navy)';
@@ -72,7 +90,7 @@
     if (panel) panel.style.display = 'block';
   };
 
-  // ── Scroll reveal ──────────────────────────────────
+  // ── Scroll reveal ───────────────────────────────────
   var reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
@@ -99,7 +117,7 @@
   }
   setTimeout(function() { reveals.forEach(showEl); }, 800);
 
-  // ── Formspree AJAX ─────────────────────────────────
+  // ── Formspree AJAX ──────────────────────────────────
   document.querySelectorAll('form[data-fid]').forEach(function(form) {
     var fid = form.getAttribute('data-fid');
     var btn = form.querySelector('button[type="submit"]');
@@ -115,11 +133,12 @@
     });
   });
 
-  // ── Hero type selector ─────────────────────────────
+  // ── Hero type selector ──────────────────────────────
   window.setHeroType = function(btn, type) {
     document.querySelectorAll('.hero-type-btn').forEach(function(b) { b.classList.remove('selected'); });
     if (btn) btn.classList.add('selected');
     var inp = document.getElementById('hero-type');
     if (inp) inp.value = type;
   };
+
 })();
