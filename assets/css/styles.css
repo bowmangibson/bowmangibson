@@ -499,3 +499,68 @@ img { max-width: 100%; height: auto }
   .mobile-sticky-cta { display: block }
   body { padding-bottom: 76px }
 }
+
+/* ── Mobile show/hide utilities ────────────────── */
+.mob-show-hero-links { display: none }
+
+@media (max-width: 768px) {
+  /* Hide on mobile */
+  .mob-hide { display: none !important }
+
+  /* Mobile hero quick-links */
+  .mob-show-hero-links {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  .mob-quick-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: rgba(255,255,255,0.92);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .mob-quick-link span { margin-left: auto; opacity: 0.5; font-size: 16px }
+
+  /* Compact section padding on mobile */
+  .mob-compact { padding-top: 28px !important; padding-bottom: 28px !important }
+  .mob-compact [style*="margin-bottom:56px"] { margin-bottom: 20px !important }
+  .mob-compact [style*="padding:40px 36px"] { padding: 20px 16px !important }
+
+  /* How it works: horizontal compact rows instead of big cells */
+  .mob-compact .grid-3col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    background: none !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border) !important;
+  }
+  .mob-compact .grid-3col > div {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 16px !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--border) !important;
+    background: #fff !important;
+  }
+  .mob-compact .grid-3col > div:last-child { border-bottom: none !important }
+  .mob-compact .grid-3col > div > div:first-child {
+    width: 36px !important; height: 36px !important;
+    min-width: 36px !important;
+    margin: 0 !important;
+    border-width: 1.5px !important;
+  }
+  .mob-compact .grid-3col > div > div:first-child span { font-size: 15px !important }
+
+  /* Tighten section gaps on mobile across the board */
+  .section { padding-top: 36px !important; padding-bottom: 36px !important }
+}
