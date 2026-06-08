@@ -124,8 +124,66 @@ body{background:#f0f4f7;min-height:100vh}
 .q-consent-text{font-size:12px;color:var(--muted);line-height:1.65}
 .q-consent-text a{color:var(--navy)}
 
-@media(max-width:800px){.q-trust{display:none}.q-wrap{padding:20px 16px}} @media(max-width:768px){.quote-wrap{padding:12px 12px 80px!important} .quote-wrap > div:first-child{margin-top:12px!important} .q-progress-bar{display:none!important}}
-@media(max-width:480px){.q-types{grid-template-columns:1fr 1fr}.q-row{grid-template-columns:1fr}.q-title{font-size:24px}}
+@media(max-width:800px){.q-trust{display:none}}
+
+@media(max-width:768px){
+  /* Hide the fixed floating progress bar — it causes the overlay line */
+  .q-progress-bar{display:none!important}
+
+  /* Quote page: fill viewport below nav, no scrolling background */
+  body{background:#f0f4f7}
+  .quote-wrap{
+    padding:0!important;
+    min-height:0!important;
+    align-items:stretch!important;
+    justify-content:stretch!important;
+    gap:0!important;
+  }
+
+  /* Card fills the full width, no side padding, no floating */
+  .quote-wrap > div:first-child{
+    margin-top:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    padding:12px 12px 90px!important;
+  }
+  .q-card{
+    border-radius:16px!important;
+    box-shadow:0 4px 20px rgba(16,40,63,.10)!important;
+    max-width:100%!important;
+  }
+
+  /* Tighter body padding inside card */
+  .q-header{padding:16px 20px 0!important}
+  .q-body{padding:16px 20px 20px!important}
+  .q-title{font-size:22px!important;margin-bottom:6px!important}
+  .q-sub{font-size:14px!important;margin-bottom:20px!important}
+
+  /* Type tiles: compact */
+  .q-types{gap:8px!important;margin-bottom:16px!important}
+  .q-type{padding:16px 10px 14px!important;gap:8px!important}
+  .q-type-icon{width:52px!important;height:52px!important}
+  .q-type-icon svg{width:34px!important;height:34px!important}
+  .q-type-name{font-size:13px!important}
+  .q-type-desc{display:none!important}
+
+  /* Continue button */
+  .q-btn-primary{border-radius:12px!important;padding:14px 20px!important}
+
+  /* Two col fields -> single */
+  .q-row{grid-template-columns:1fr!important}
+
+  /* Pills smaller */
+  .q-pill{font-size:13px!important;padding:8px 14px!important}
+
+  /* Inline progress bar */
+  .q-card-progress{display:block;margin:12px 20px 0}
+}
+
+@media(max-width:480px){
+  .q-row{grid-template-columns:1fr}
+  .q-title{font-size:20px!important}
+}
 </style>
 </head>
 <body>
