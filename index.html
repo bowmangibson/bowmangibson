@@ -370,9 +370,7 @@
 
   </div>
 </section>
-<section class="section section-blue-grey">
-  <div class="w">
-    <div class="grid-sidebar-left" style="display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center">
+<section class="section section-blue-grey mob-section-hide">
       <div>
         <div class="tag">Why Bowman &amp; Gibson</div>
         <h2 class="h2">Independent advice. <em>Since 1922.</em></h2>
@@ -389,7 +387,7 @@
 </section>
 
 <!-- Commercial Feature - dark navy -->
-<section style="background:var(--navy-dark);padding:80px 0;position:relative;overflow:hidden">
+<section class="mob-section-hide" style="background:var(--navy-dark);padding:80px 0;position:relative;overflow:hidden">
   <div style="position:absolute;top:0;right:0;width:400px;height:400px;background:radial-gradient(circle,rgba(18,167,181,0.10),transparent 70%);pointer-events:none"></div>
   <div class="w" style="position:relative;z-index:1">
     <div class="grid-sidebar-left" style="display:grid;grid-template-columns:380px 1fr;gap:72px;align-items:start">
@@ -409,7 +407,7 @@
 </section>
 
 <!-- How it works -->
-<section class="section mob-compact" style="background:#fff">
+<section class="section mob-compact mob-section-hide" style="background:#fff">
   <div class="w">
     <div style="text-align:center;margin-bottom:56px">
       <div class="tag">How it works</div>
@@ -423,7 +421,7 @@
 </section>
 
 <!-- Local Roots -->
-<section class="section section-blue-grey">
+<section class="section section-blue-grey mob-section-hide">
   <div class="w">
     <div class="grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
       <div>
@@ -445,7 +443,7 @@
 
 
 <!-- Reviews -->
-<section class="section" style="background:#fff">
+<section class="section mob-reviews" style="background:#fff">
   <div class="w">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:36px">
       <div>
@@ -466,7 +464,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="section section-blue-grey">
+<section class="section section-blue-grey mob-section-hide">
   <div class="w">
     <div class="grid-sidebar-left" style="display:grid;grid-template-columns:380px 1fr;gap:72px;align-items:start">
       <div class="mob-hide" style="position:sticky;top:80px">
@@ -521,7 +519,7 @@
 </section>
 
 <!-- Final CTA -->
-<section class="section" style="background:var(--navy-dark)" id="contact">
+<section class="section mob-section-hide" style="background:var(--navy-dark)" id="contact">
   <div class="w">
     <div class="grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
       <div>
@@ -571,6 +569,45 @@
           <div class="form-success">Received - we'll be in touch within one business day.</div>
         </form>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile-only: trust signals + contact (replaces hidden sections) -->
+<section class="mob-only" style="background:var(--navy-dark);padding:40px 0 20px">
+  <div class="w">
+    <div style="margin-bottom:28px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px">Why clients choose us</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08)">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+          <span style="font-size:14px;color:rgba(255,255,255,.88);font-weight:600">Independent — we work for you, not an insurer</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08)">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+          <span style="font-size:14px;color:rgba(255,255,255,.88);font-weight:600">30+ markets — more options, better fit</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08)">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+          <span style="font-size:14px;color:rgba(255,255,255,.88);font-weight:600">Whitby-based, RIBO licensed since 1922</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08)">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+          <span style="font-size:14px;color:rgba(255,255,255,.88);font-weight:600">Real broker answers — not a chatbot</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:24px">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px">Get in touch</div>
+      <a href="tel:9056685823" style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08);margin-bottom:8px;text-decoration:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" style="width:18px;height:18px;flex-shrink:0"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.3 11a19.79 19.79 0 01-3-8.54A2 2 0 012.27 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <div><div style="font-size:13px;color:rgba(255,255,255,.5);font-weight:500">Call us</div><div style="font-size:15px;font-weight:700;color:#fff">(905) 668-5823</div></div>
+      </a>
+      <a href="mailto:info@bowmangibson.com" style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08);margin-bottom:8px;text-decoration:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" style="width:18px;height:18px;flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div><div style="font-size:13px;color:rgba(255,255,255,.5);font-weight:500">Email us</div><div style="font-size:15px;font-weight:700;color:var(--teal)">info@bowmangibson.com</div></div>
+      </a>
+      <div style="font-size:12px;color:rgba(255,255,255,.3);text-align:center;margin-top:16px">Mon–Thu 8:30–5 &middot; Fri 8:30–4:30 &middot; 145 Brock St S, Whitby</div>
     </div>
   </div>
 </section>
