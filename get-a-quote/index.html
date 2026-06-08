@@ -201,12 +201,6 @@ body{background:#f0f4f7;min-height:100vh} @media(max-width:768px){html,body{over
       </a>
       <ul class="nav-links" id="nav-menu">
         <!-- Mobile close button -->
-        <li class="mob-nav-close-li">
-          <button class="mob-nav-close" id="nav-close" aria-label="Close menu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            Close
-          </button>
-        </li>
         <li class="dd-wrap">
           <a href="../personal-insurance/index.html">Personal Insurance
           </a>
@@ -818,9 +812,10 @@ function goTo(id){
   const pct = PROGRESS[id] || 0;
   document.getElementById('qprogress').style.width = pct + '%';
   var p2=document.getElementById('qprogress2'); if(p2) p2.style.width = pct + '%';
-  // Scroll card top into view smoothly
-  var card = document.getElementById('qcard');
-  if(card) card.scrollIntoView({behavior:'smooth', block:'start'});
+  // Scroll to top of card container only
+  var wrap = document.getElementById('quote-wrap');
+  if(wrap) wrap.scrollTop = 0;
+  if(window.pageYOffset > 60) window.scrollTo(0, 60);
 }
 
 function pickType(type, btn){
