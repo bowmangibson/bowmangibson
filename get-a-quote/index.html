@@ -265,7 +265,7 @@ body{background:#f0f4f7;min-height:100vh} @media(max-width:768px){html,body{over
 <div class="quote-wrap" id="quote-wrap">
 
   <!-- Progress -->
-  <div class="q-progress-bar" style="position:fixed;top:78px;left:0;right:0;z-index:100;background:rgba(240,244,247,.98);padding:10px 20px 12px">
+  <div class="q-progress-bar" style="padding:12px 20px 14px;border-bottom:1px solid rgba(16,40,63,.07)">
     <div style="max-width:560px;margin:0 auto">
       <div class="q-progress"><div class="q-progress-fill" id="qprogress"></div></div>
     </div>
@@ -802,7 +802,10 @@ for(let y = new Date().getFullYear() + 1; y >= 1980; y--){
 }
 
 // ── Navigation ────────────────────────────────────────────
-function goTo(id){
+// Track step history for native back button support
+var _stepHistory = ['qs-0'];
+
+function goTo(id, skipHistory){
   document.querySelectorAll('.q-step').forEach(s => {
     s.classList.remove('active');
   });
@@ -812,11 +815,28 @@ function goTo(id){
   const pct = PROGRESS[id] || 0;
   document.getElementById('qprogress').style.width = pct + '%';
   var p2=document.getElementById('qprogress2'); if(p2) p2.style.width = pct + '%';
-  // Scroll to top of card container only
-  var wrap = document.getElementById('quote-wrap');
-  if(wrap) wrap.scrollTop = 0;
+  // Scroll to just below nav
   if(window.pageYOffset > 60) window.scrollTo(0, 60);
+  // Push to browser history so phone back button works (unless we're already going back)
+  if(!skipHistory){
+    _stepHistory.push(id);
+    history.pushState({step: id}, '', '');
+  }
 }
+
+// Handle phone/browser back button
+window.addEventListener('popstate', function(e){
+  // Remove current step from our history
+  if(_stepHistory.length > 1){
+    _stepHistory.pop();
+    var prev = _stepHistory[_stepHistory.length - 1];
+    goTo(prev, true); // skipHistory=true so we don't push again
+  }
+  // If only one step left (qs-0), let the browser navigate away naturally
+});
+
+// Push initial state so first back press goes to step 0, not away from page
+history.replaceState({step: 'qs-0'}, '', '');
 
 function pickType(type, btn){
   qType = type;
