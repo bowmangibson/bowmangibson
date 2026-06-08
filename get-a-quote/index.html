@@ -20,7 +20,7 @@ body{background:#f0f4f7;min-height:100vh}
 .q-progress-fill{height:100%;background:var(--teal);border-radius:99px;transition:width 0.5s var(--ease);width:0%}
 
 /* Card */
-.q-card{background:#fff;border-radius:var(--card-radius);width:100%;max-width:560px;box-shadow:0 8px 40px rgba(16,40,63,.10),0 1px 4px rgba(16,40,63,.06);overflow:hidden;transition:all 0.35s var(--ease)}
+.q-card{background:#fff;border-radius:var(--card-radius);width:100%;max-width:560px;box-shadow:0 8px 40px rgba(16,40,63,.10),0 1px 4px rgba(16,40,63,.06);overflow:visible;transition:all 0.35s var(--ease)}
 
 /* Step */
 .q-step{display:none;animation:qIn 0.3s ease both}
@@ -35,19 +35,19 @@ body{background:#f0f4f7;min-height:100vh}
 .q-back svg{width:14px;height:14px}
 
 /* Card body */
-.q-body{padding:24px 28px 28px}
+.q-body{padding:24px 28px 28px} .q-body-padded{padding:24px 28px 0}
 .q-title{font-family:var(--h);font-size:28px;font-weight:760;color:var(--navy);line-height:1.05;letter-spacing:-.04em;margin-bottom:8px}
 .q-title em{font-style:italic;color:var(--teal)}
 .q-sub{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:28px}
 
 /* Type selector */
 .q-types{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
-.q-type{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 16px;border-radius:16px;border:2px solid var(--border);background:var(--off);cursor:pointer;transition:all 0.18s;font-family:var(--h);text-align:center}
+.q-type{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 16px 18px;border-radius:16px;border:2px solid var(--border);background:var(--off);cursor:pointer;transition:all 0.18s;font-family:var(--h);text-align:center}
 .q-type:hover{border-color:var(--navy);background:#fff;transform:translateY(-2px)}
 .q-type.selected{border-color:var(--navy);background:var(--navy);color:#fff}
-.q-type-icon{width:44px;height:44px;border-radius:12px;background:var(--blue-grey);display:flex;align-items:center;justify-content:center;transition:background 0.18s}
+.q-type-icon{width:60px;height:60px;border-radius:14px;background:var(--blue-grey);display:flex;align-items:center;justify-content:center;transition:background 0.18s}
 .q-type.selected .q-type-icon{background:rgba(255,255,255,.15)}
-.q-type-icon svg{width:22px;height:22px;color:var(--navy)}
+.q-type-icon svg{width:40px;height:40px;color:var(--navy)}
 .q-type.selected .q-type-icon svg{color:#fff}
 .q-type-name{font-size:14px;font-weight:700;color:var(--navy);transition:color 0.18s}
 .q-type.selected .q-type-name{color:#fff}
@@ -231,22 +231,60 @@ body{background:#f0f4f7;min-height:100vh}
         <p class="q-sub">Pick one to get started. Takes less than 2 minutes.</p>
         <div class="q-types">
           <button class="q-type" onclick="pickType('auto',this)">
-            <div class="q-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17m-2 0a2 2 0 1 0 4 0m8-2a2 2 0 1 0 4 0M5 17H3v-6l2-5h11l3 4h2v7h-2M9 17h6"/></svg></div>
+            <div class="q-type-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="18" width="40" height="18" rx="4" fill="currentColor" opacity="0.15"/>
+                <path d="M8 22l4-10h24l4 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="4" y="22" width="40" height="14" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="13" cy="36" r="4" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="35" cy="36" r="4" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M17 36h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 22l3-7h16l3 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="15" y="16" width="18" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              </svg>
+            </div>
             <div class="q-type-name">Auto</div>
             <div class="q-type-desc">Car, truck, van</div>
           </button>
           <button class="q-type" onclick="pickType('home',this)">
-            <div class="q-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V13h6v8"/></svg></div>
+            <div class="q-type-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,5 44,22 4,22" fill="currentColor" opacity="0.2"/>
+                <path d="M6 22L24 6l18 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="8" y="22" width="32" height="20" rx="2" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="2.5"/>
+                <rect x="20" y="32" width="8" height="10" rx="1.5" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="2"/>
+                <rect x="12" y="26" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+                <rect x="29" y="26" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+              </svg>
+            </div>
             <div class="q-type-name">Home</div>
             <div class="q-type-desc">House, condo, tenant</div>
           </button>
           <button class="q-type" onclick="pickType('commercial',this)">
-            <div class="q-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+            <div class="q-type-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="16" width="40" height="26" rx="3" fill="currentColor" opacity="0.12" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M16 16v-4a2 2 0 012-2h12a2 2 0 012 2v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="4" y1="28" x2="44" y2="28" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                <rect x="20" y="24" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.3" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 10h4M32 10h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
             <div class="q-type-name">Business</div>
             <div class="q-type-desc">Commercial coverage</div>
           </button>
           <button class="q-type" onclick="pickType('farm',this)">
-            <div class="q-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21V15h6v6"/></svg></div>
+            <div class="q-type-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,4 42,18 42,42 6,42 6,18" fill="currentColor" opacity="0.12"/>
+                <path d="M6 18L24 5l18 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="6" y="18" width="36" height="24" rx="1" stroke="currentColor" stroke-width="2.5"/>
+                <rect x="19" y="28" width="10" height="14" rx="1.5" fill="currentColor" opacity="0.25" stroke="currentColor" stroke-width="2"/>
+                <rect x="10" y="24" width="9" height="9" rx="1" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                <rect x="29" y="24" width="9" height="9" rx="1" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                <path d="M24 5v13" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              </svg>
+            </div>
             <div class="q-type-name">Farm</div>
             <div class="q-type-desc">Property &amp; liability</div>
           </button>
