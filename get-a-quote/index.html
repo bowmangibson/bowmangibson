@@ -21,6 +21,9 @@ body{background:#f0f4f7;min-height:100vh}
 
 /* Card */
 .q-card{background:#fff;border-radius:var(--card-radius);width:100%;max-width:560px;box-shadow:0 8px 40px rgba(16,40,63,.10),0 1px 4px rgba(16,40,63,.06);overflow:visible;transition:all 0.35s var(--ease)}
+.q-card-progress{height:3px;background:rgba(16,40,63,.08);border-radius:3px;margin:0 28px 0;display:none}
+.q-card-progress-fill{height:100%;background:var(--teal);border-radius:3px;transition:width .5s;width:0%}
+@media(max-width:768px){.q-card-progress{display:block;margin:12px 20px 0}}
 
 /* Step */
 .q-step{display:none;animation:qIn 0.3s ease both}
@@ -121,7 +124,7 @@ body{background:#f0f4f7;min-height:100vh}
 .q-consent-text{font-size:12px;color:var(--muted);line-height:1.65}
 .q-consent-text a{color:var(--navy)}
 
-@media(max-width:800px){.q-trust{display:none}.q-wrap{padding:20px 16px}} @media(max-width:768px){.quote-wrap{padding:16px 12px 80px!important} .quote-wrap > div:first-child{margin-top:58px!important}}
+@media(max-width:800px){.q-trust{display:none}.q-wrap{padding:20px 16px}} @media(max-width:768px){.quote-wrap{padding:12px 12px 80px!important} .quote-wrap > div:first-child{margin-top:12px!important} .q-progress-bar{display:none!important}}
 @media(max-width:480px){.q-types{grid-template-columns:1fr 1fr}.q-row{grid-template-columns:1fr}.q-title{font-size:24px}}
 </style>
 </head>
@@ -213,15 +216,16 @@ body{background:#f0f4f7;min-height:100vh}
 <div class="quote-wrap" id="quote-wrap">
 
   <!-- Progress -->
-  <div style="position:fixed;top:78px;left:0;right:0;z-index:100;background:rgba(240,244,247,.98);padding:10px 20px 12px">
+  <div class="q-progress-bar" style="position:fixed;top:78px;left:0;right:0;z-index:100;background:rgba(240,244,247,.98);padding:10px 20px 12px">
     <div style="max-width:560px;margin:0 auto">
       <div class="q-progress"><div class="q-progress-fill" id="qprogress"></div></div>
     </div>
   </div>
 
   <!-- Card -->
-  <div style="margin-top:64px;width:100%;max-width:560px">
+  <div style="margin-top:16px;width:100%;max-width:560px">
   <div class="q-card" id="qcard">
+    <div class="q-card-progress"><div class="q-card-progress-fill" id="qprogress2"></div></div>
 
     <!-- ─── STEP 0: Choose type ─────────────────────── -->
     <div class="q-step active" id="qs-0">
@@ -760,6 +764,7 @@ function goTo(id){
   // Update progress
   const pct = PROGRESS[id] || 0;
   document.getElementById('qprogress').style.width = pct + '%';
+  var p2=document.getElementById('qprogress2'); if(p2) p2.style.width = pct + '%';
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
