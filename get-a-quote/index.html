@@ -11,7 +11,7 @@
 <style>
 /* ── Quote page styles ──────────────────────────────────── */
 :root{--card-radius:24px;--input-radius:14px}
-body{background:#f0f4f7;min-height:100vh}
+body{background:#f0f4f7;min-height:100vh} @media(max-width:768px){html,body{overflow-x:hidden;scroll-behavior:smooth}}
 
 .quote-wrap{min-height:calc(100vh - 78px);display:flex;align-items:flex-start;justify-content:center;padding:40px 20px 60px;gap:32px}
 
@@ -208,8 +208,7 @@ body{background:#f0f4f7;min-height:100vh}
           </button>
         </li>
         <li class="dd-wrap">
-          <a href="../personal-insurance/index.html" class="dd-parent-link">Personal Insurance
-            <span class="dd-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          <a href="../personal-insurance/index.html">Personal Insurance
           </a>
           <div class="dd-menu">
             <a href="../personal-insurance/car-auto-insurance/index.html">Car &amp; Auto Insurance</a>
@@ -224,8 +223,7 @@ body{background:#f0f4f7;min-height:100vh}
           </div>
         </li>
         <li class="dd-wrap">
-          <a href="../commercial/index.html" class="dd-parent-link">Commercial Insurance
-            <span class="dd-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          <a href="../commercial/index.html">Commercial Insurance
           </a>
           <div class="dd-menu">
             <a href="../commercial/contractors/index.html">Contractor Insurance</a>
@@ -241,8 +239,7 @@ body{background:#f0f4f7;min-height:100vh}
         <li><a href="../faq/index.html">FAQ</a></li>
         <li><a href="../claims/index.html">Claims</a></li>
         <li class="dd-wrap">
-          <a href="../about-independent-insurance-brokerage-ontario/index.html" class="dd-parent-link">About
-            <span class="dd-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          <a href="../about-independent-insurance-brokerage-ontario/index.html">About
           </a>
           <div class="dd-menu">
             <a href="../about-independent-insurance-brokerage-ontario/index.html">About Us</a>
@@ -821,7 +818,9 @@ function goTo(id){
   const pct = PROGRESS[id] || 0;
   document.getElementById('qprogress').style.width = pct + '%';
   var p2=document.getElementById('qprogress2'); if(p2) p2.style.width = pct + '%';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Scroll card top into view smoothly
+  var card = document.getElementById('qcard');
+  if(card) card.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 function pickType(type, btn){
