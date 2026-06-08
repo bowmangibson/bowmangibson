@@ -802,41 +802,7 @@ for(let y = new Date().getFullYear() + 1; y >= 1980; y--){
 }
 
 // ── Navigation ────────────────────────────────────────────
-// Track step history for native back button support
-var _stepHistory = ['qs-0'];
-
-function goTo(id, skipHistory){
-  document.querySelectorAll('.q-step').forEach(s => {
-    s.classList.remove('active');
-  });
-  const el = document.getElementById(id);
-  if(el){ el.classList.add('active'); }
-  // Update progress
-  const pct = PROGRESS[id] || 0;
-  document.getElementById('qprogress').style.width = pct + '%';
-  var p2=document.getElementById('qprogress2'); if(p2) p2.style.width = pct + '%';
-  // Scroll to just below nav
-  if(window.pageYOffset > 60) window.scrollTo(0, 60);
-  // Push to browser history so phone back button works (unless we're already going back)
-  if(!skipHistory){
-    _stepHistory.push(id);
-    history.pushState({step: id}, '');
-  }
-}
-
-// Handle phone/browser back button
-window.addEventListener('popstate', function(e){
-  // Remove current step from our history
-  if(_stepHistory.length > 1){
-    _stepHistory.pop();
-    var prev = _stepHistory[_stepHistory.length - 1];
-    goTo(prev, true); // skipHistory=true so we don't push again
-  }
-  // If only one step left (qs-0), let the browser navigate away naturally
-});
-
-// Push initial state so first back press goes to step 0, not away from page
-history.replaceState({step: 'qs-0'}, '');
+// Step navigation handled by on-screen back buttons
 
 function pickType(type, btn){
   qType = type;
