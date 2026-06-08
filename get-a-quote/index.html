@@ -121,7 +121,7 @@ body{background:#f0f4f7;min-height:100vh}
 .q-consent-text{font-size:12px;color:var(--muted);line-height:1.65}
 .q-consent-text a{color:var(--navy)}
 
-@media(max-width:800px){.q-trust{display:none}.q-wrap{padding:20px 16px}}
+@media(max-width:800px){.q-trust{display:none}.q-wrap{padding:20px 16px}} @media(max-width:768px){.quote-wrap{padding:16px 12px 80px!important} .quote-wrap > div:first-child{margin-top:58px!important}}
 @media(max-width:480px){.q-types{grid-template-columns:1fr 1fr}.q-row{grid-template-columns:1fr}.q-title{font-size:24px}}
 </style>
 </head>
@@ -213,14 +213,14 @@ body{background:#f0f4f7;min-height:100vh}
 <div class="quote-wrap" id="quote-wrap">
 
   <!-- Progress -->
-  <div style="position:fixed;top:78px;left:0;right:0;z-index:100;background:rgba(240,244,247,.95);backdrop-filter:blur(8px);padding:12px 20px 14px">
+  <div style="position:fixed;top:78px;left:0;right:0;z-index:100;background:rgba(240,244,247,.98);padding:10px 20px 12px">
     <div style="max-width:560px;margin:0 auto">
       <div class="q-progress"><div class="q-progress-fill" id="qprogress"></div></div>
     </div>
   </div>
 
   <!-- Card -->
-  <div style="margin-top:44px;width:100%;max-width:560px">
+  <div style="margin-top:64px;width:100%;max-width:560px">
   <div class="q-card" id="qcard">
 
     <!-- ─── STEP 0: Choose type ─────────────────────── -->
@@ -289,10 +289,10 @@ body{background:#f0f4f7;min-height:100vh}
             <div class="q-type-desc">Property &amp; liability</div>
           </button>
         </div>
+        <button class="q-btn-primary" id="qbtn-0" onclick="nextFrom('qs-0')" disabled style="width:100%;justify-content:center;margin-top:8px">
+          Continue <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
       </div>
-      <button class="q-btn-primary" id="qbtn-0" onclick="nextFrom('qs-0')" disabled style="width:100%;justify-content:center;margin-top:16px">
-        Continue <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </button>
     </div>
     </div>
 
