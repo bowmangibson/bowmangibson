@@ -294,7 +294,6 @@ img { max-width: 100%; height: auto }
 
 /* Nav mobile tel: hidden by default */
 .nav-mobile-li { display: none }
-.mob-nav-close-li { display: none }
 .nav-mobile-tel {
   display: flex; align-items: center; gap: 10px;
   padding: 14px 16px; font-size: 15px; font-weight: 700;
@@ -381,15 +380,6 @@ img { max-width: 100%; height: auto }
   .dd-menu a:hover { background: rgba(0,0,0,.04) }
 
   /* Mobile close button */
-  .mob-nav-close-li { display: list-item !important }
-  .mob-nav-close {
-    display: flex; align-items: center; gap: 10px;
-    width: 100%; padding: 16px 20px;
-    background: var(--navy); color: #fff;
-    font-size: 15px; font-weight: 700;
-    border: none; cursor: pointer; font-family: var(--h);
-    border-bottom: 2px solid var(--teal);
-  }
 
   /* Show mobile phone link in nav */
   .nav-mobile-li { display: list-item }
@@ -523,6 +513,154 @@ img { max-width: 100%; height: auto }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr }
+}
+
+
+/* ═══════════════════════════════════════════════
+   MOBILE NAV OVERLAY — body-level, no stacking issues
+   ═══════════════════════════════════════════════ */
+.mob-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  flex-direction: column;
+  overflow: hidden;
+}
+.mob-nav-overlay.open {
+  display: flex;
+}
+body.mob-nav-open {
+  overflow: hidden;
+}
+.mob-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+  background: var(--navy);
+  flex-shrink: 0;
+  border-bottom: 2px solid var(--teal);
+}
+.mob-nav-logo {
+  font-family: var(--h);
+  font-size: 16px;
+  font-weight: 760;
+  color: #fff;
+  letter-spacing: -.02em;
+}
+.mob-nav-closebtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+.mob-nav-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mob-nav-group {
+  border-bottom: 1px solid var(--border);
+}
+.mob-nav-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  font-family: var(--h);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  text-align: left;
+}
+.mob-nav-chevron {
+  flex-shrink: 0;
+  transition: transform .2s;
+  opacity: .45;
+}
+.mob-nav-group.open .mob-nav-chevron {
+  transform: rotate(180deg);
+  opacity: .8;
+}
+.mob-nav-dd {
+  display: none;
+  background: var(--off);
+  padding: 6px 0;
+  border-top: 1px solid var(--border);
+}
+.mob-nav-group.open .mob-nav-dd {
+  display: block;
+}
+.mob-nav-dd a {
+  display: block;
+  padding: 12px 20px 12px 32px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--g600);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.mob-nav-dd a:last-child { border-bottom: none; }
+.mob-nav-dd a:hover { background: rgba(0,0,0,.04); }
+.mob-nav-viewall {
+  padding: 12px 20px 12px 32px !important;
+  font-weight: 700 !important;
+  color: var(--teal) !important;
+}
+.mob-nav-link {
+  display: block;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.mob-nav-link:hover { background: var(--off); }
+.mob-nav-footer {
+  flex-shrink: 0;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 2px solid var(--border);
+  background: #fff;
+}
+.mob-nav-call {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+}
+.mob-nav-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  background: var(--teal);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 /* ── Sticky mobile CTA bar ─────────────────────── */
