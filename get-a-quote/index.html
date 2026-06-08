@@ -820,7 +820,7 @@ function goTo(id, skipHistory){
   // Push to browser history so phone back button works (unless we're already going back)
   if(!skipHistory){
     _stepHistory.push(id);
-    history.pushState({step: id}, '', '');
+    history.pushState({step: id}, '');
   }
 }
 
@@ -836,7 +836,7 @@ window.addEventListener('popstate', function(e){
 });
 
 // Push initial state so first back press goes to step 0, not away from page
-history.replaceState({step: 'qs-0'}, '', '');
+history.replaceState({step: 'qs-0'}, '');
 
 function pickType(type, btn){
   qType = type;
