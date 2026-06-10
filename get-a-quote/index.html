@@ -804,6 +804,18 @@ for(let y = new Date().getFullYear() + 1; y >= 1980; y--){
 // ── Navigation ────────────────────────────────────────────
 // Step navigation handled by on-screen back buttons
 
+function goTo(id){
+  document.querySelectorAll('.q-step').forEach(s => {
+    s.classList.remove('active');
+  });
+  const el = document.getElementById(id);
+  if(el){ el.classList.add('active'); }
+  const pct = PROGRESS[id] || 0;
+  document.getElementById('qprogress').style.width = pct + '%';
+  var p2=document.getElementById('qprogress2'); if(p2) p2.style.width = pct + '%';
+  if(window.pageYOffset > 60) window.scrollTo(0, 60);
+}
+
 function pickType(type, btn){
   qType = type;
   qData.type = type;
