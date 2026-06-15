@@ -440,6 +440,10 @@ img { max-width: 100%; height: auto }
   .nav-tel { display: none }
   .nav-portal { display: none }
   .svc-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto }
+  /* Tablet band: collapse fixed-width two-column layouts so they don't overflow */
+  .hero-layout { grid-template-columns: 1fr !important; gap: 40px !important }
+  .hero-layout .hero-box { max-width: 460px }
+  .grid-sidebar-left { grid-template-columns: 1fr !important; gap: 40px !important }
 }
 
 /* ── Renewal page ── */
@@ -867,3 +871,6 @@ body.nav-open { overflow: hidden !important }
   /* Coverage section header tighten */
   [style*="padding-top:72px;padding-bottom:72px"] { padding-top: 32px !important; padding-bottom: 32px !important }
 }
+
+.related-grid{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:680px){.related-grid{grid-template-columns:1fr !important}}
