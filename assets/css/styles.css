@@ -540,7 +540,8 @@ img { max-width: 100%; height: auto }
   .two-col { grid-template-columns: 1fr; gap: 24px }
   .prod-grid { grid-template-columns: 1fr }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 20px }
-  .footer-top { flex-direction: column; gap: 16px }
+  .footer-top { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 28px 20px !important }
+  .footer-top > div:first-child { grid-column: 1 / -1 !important; margin-bottom: 4px }
   .claims-card-grid { grid-template-columns: 1fr }
   .blog-grid { grid-template-columns: 1fr }
 
@@ -936,4 +937,39 @@ body.nav-open { overflow: hidden !important }
 
   /* Sticky bar: ensure tap targets and no content cover handled via body padding */
   .mobile-sticky-cta a { min-height:46px }
+}
+
+/* ── Mobile inner-page hero: reduce excess top space (v96) ── */
+@media (max-width: 768px) {
+  /* Inner-page navy heros use inline padding:92px + min-height:400px + center align,
+     which leaves a big empty gap at the top on mobile. Tighten it. */
+  div[style*="background:var(--navy);padding:92px 0"][style*="min-height:400px"] {
+    padding-top: 40px !important;
+    padding-bottom: 36px !important;
+    min-height: auto !important;
+    align-items: flex-start !important;
+  }
+  /* Breadcrumb a touch tighter under the header */
+  div[style*="background:var(--navy);padding:92px 0"] .breadcrumb { margin-bottom: 14px !important }
+}
+
+/* ── Mobile inner-page hero CTAs: stack full-width with breathing room (v96) ── */
+@media (max-width: 768px) {
+  div[style*="background:var(--navy);padding:92px 0"] div[style*="display:flex;gap:12px;flex-wrap:wrap"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+  div[style*="background:var(--navy);padding:92px 0"] div[style*="display:flex;gap:12px;flex-wrap:wrap"] .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 50px !important;
+  }
+}
+
+/* ── Mobile header: give the hamburger breathing room from the edge (v96) ── */
+@media (max-width: 768px) {
+  .nav .w { padding-left: 18px !important; padding-right: 14px !important }
+  .burger { margin-right: 2px }
+  .nav-inner { height: 70px }
 }
