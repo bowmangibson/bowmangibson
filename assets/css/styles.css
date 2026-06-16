@@ -371,7 +371,7 @@ img{display:block;max-width:100%}
 
 /* ── FOOTER ──────────────────────────────────────── */
 .footer{background:#071827;color:rgba(255,255,255,.7);padding:58px 0 0}
-.footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
 .footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
 .f-logo{display:flex;align-items:center;gap:11px;margin-bottom:18px}
 .f-logo-icon{width:36px;height:36px;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
@@ -434,6 +434,7 @@ img { max-width: 100%; height: auto }
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr 1fr; gap: 32px }
   .prod-grid { grid-template-columns: repeat(2, 1fr) }
   .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px }
   .two-col { grid-template-columns: 1fr 280px; gap: 40px }
@@ -885,3 +886,54 @@ body.nav-open { overflow: hidden !important }
 .team-card:first-child .team-role{color:var(--gold-2)}
 @media(max-width:768px){.team-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
 @media(max-width:430px){.team-grid{grid-template-columns:1fr}}
+
+/* ════════════════════════════════════════════════════════
+   MOBILE ENHANCEMENT LAYER (v95) — SEHC-inspired calm flow
+   Mobile-only (≤768px). Does not touch desktop layout.
+   ════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* — Hero: calmer spacing, tighter headline, breathing room — */
+  section[style*="min-height:680px"] { min-height:auto !important; padding-top:36px !important; padding-bottom:40px !important }
+  section[style*="min-height:680px"] h1 { font-size:34px !important; line-height:1.05 !important; margin-bottom:16px !important }
+  section[style*="min-height:680px"] > div p { font-size:16px !important; line-height:1.6 !important; margin-bottom:24px !important }
+
+  /* Hero CTAs: stack full-width, generous tap targets (≥44px) */
+  section[style*="min-height:680px"] .btn-teal,
+  section[style*="min-height:680px"] .btn-outline-white {
+    width:100% !important; justify-content:center !important;
+    padding:15px 24px !important; font-size:15.5px !important; min-height:50px !important;
+  }
+  section[style*="min-height:680px"] > div > div[style*="display:flex;gap:12px"] {
+    flex-direction:column !important; gap:10px !important; margin-bottom:24px !important;
+  }
+
+  /* Hero quick-links -> large tappable service cards (SEHC style) */
+  .mob-show-hero-links { margin-top:24px !important }
+  .mob-show-hero-links > div { gap:10px !important }
+  .mob-quick-link {
+    padding:16px 18px !important; font-size:15.5px !important; min-height:56px !important;
+    border-radius:14px !important; background:rgba(255,255,255,0.08) !important;
+    border:1px solid rgba(255,255,255,0.16) !important;
+  }
+  .mob-quick-link img { width:20px !important; height:20px !important }
+
+  /* — Service cards (What We Cover): full-width, strong spacing — */
+  .svc-grid { grid-template-columns:1fr !important; gap:14px !important }
+  .svc-card { padding:24px !important }
+
+  /* — Reveal the Why-B&G section on mobile as simple trust cards — */
+  /* (was mob-section-hide). We re-show ONLY the section-blue-grey Why block. */
+  .mob-why-reveal { display:block !important; padding-top:36px !important; padding-bottom:36px !important }
+  .mob-why-reveal .grid-sidebar-left { grid-template-columns:1fr !important; gap:24px !important }
+  .mob-why-reveal .grid-2col.mob-hide { display:grid !important; grid-template-columns:1fr !important; gap:12px !important }
+  .mob-why-reveal .grid-2col > div { padding:20px !important }
+  .mob-why-reveal h2 { font-size:26px !important }
+  .mob-why-reveal .btn { width:100% !important; justify-content:center !important; min-height:50px !important }
+
+  /* — General mobile typography & rhythm — */
+  .h2 { font-size:26px !important; line-height:1.15 !important }
+  .section { padding-top:36px !important; padding-bottom:36px !important }
+
+  /* Sticky bar: ensure tap targets and no content cover handled via body padding */
+  .mobile-sticky-cta a { min-height:46px }
+}
