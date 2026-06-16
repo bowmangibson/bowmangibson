@@ -973,3 +973,15 @@ body.nav-open { overflow: hidden !important }
   .burger { margin-right: 2px }
   .nav-inner { height: 70px }
 }
+
+/* ── Mobile footer cleanup: remove stray stacked divider lines (v97) ── */
+@media (max-width: 768px) {
+  /* The footer-top bottom border + footer-bottom top border + disclaimer top border
+     stack up as multiple faint lines when the footer reflows on mobile. Simplify. */
+  .footer-top { border-bottom: none !important; padding-bottom: 32px !important; margin-bottom: 0 !important }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.1) !important; padding-top: 22px !important }
+  /* Disclaimer paragraph: drop its own top border (footer-bottom already provides one) */
+  .footer-bottom p[style*="border-top"] { border-top: none !important; padding-top: 0 !important }
+  /* f-bottom: stack copyright + legal links cleanly, no divider */
+  .f-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important }
+}
