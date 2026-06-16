@@ -874,3 +874,14 @@ body.nav-open { overflow: hidden !important }
 
 .related-grid{grid-template-columns:1fr 1fr 1fr}
 @media(max-width:680px){.related-grid{grid-template-columns:1fr !important}}
+
+/* ── About page team grid ── */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:border-color .15s,box-shadow .15s,transform .15s}
+.team-card:hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(16,40,63,.07);transform:translateY(-2px)}
+.team-card:first-child{border-left:3px solid var(--gold)}
+.team-name{font-family:var(--h);font-weight:700;font-size:15.5px;color:var(--navy);letter-spacing:-.01em;margin-bottom:3px}
+.team-role{font-size:12.5px;color:var(--teal);font-weight:600;letter-spacing:.01em}
+.team-card:first-child .team-role{color:var(--gold-2)}
+@media(max-width:768px){.team-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media(max-width:430px){.team-grid{grid-template-columns:1fr}}

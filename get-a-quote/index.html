@@ -230,6 +230,22 @@ body{background:linear-gradient(165deg,#eef3f7 0%,#e3edf2 45%,#dce8ef 100%);min-
   .q-title{font-size:20px!important}
 }
 </style>
+<script>
+/* Prevent the type-selector (qs-0) flash when arriving with a valid ?type= param.
+   Runs before the body paints, so the 4-square selector is never shown when we're
+   going to auto-advance straight to the chosen coverage type. */
+(function(){
+  try{
+    var t = new URLSearchParams(window.location.search).get('type');
+    if(t && ['auto','home','commercial','farm'].indexOf(t) !== -1){
+      var s = document.createElement('style');
+      s.id = 'q-skip-selector';
+      s.textContent = '#qs-0{display:none !important}';
+      (document.head || document.documentElement).appendChild(s);
+    }
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -1030,7 +1046,21 @@ function highlight(id){
     if(valid.indexOf(t) === -1) return;
     // Find the matching type button and trigger the same path as a click
     var btn = document.querySelector('.q-type[onclick*="pickType(\'' + t + '\'"]');
-    if(btn) pickType(t, btn);
+    if(btn){
+      // Arriving via ?type= - advance straight to the chosen coverage step.
+      // Skip pickType's 180ms confirmation delay (user didn't click, so no need
+      // to flash button-selected feedback) and go directly, then drop the
+      // flash-suppression style once we've left qs-0.
+      qType = t; qData.type = t;
+      btn.classList.add('selected');
+      collectStep('qs-0');
+      if(t === 'auto') goTo('qs-auto-method');
+      else if(t === 'home') goTo('qs-home-method');
+      else if(t === 'commercial') goTo('qs-commercial-1');
+      else if(t === 'farm') goTo('qs-farm-1');
+      var skip = document.getElementById('q-skip-selector');
+      if(skip) skip.remove();
+    }
   }catch(e){}
 })();
 </script>
