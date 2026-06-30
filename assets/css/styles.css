@@ -996,9 +996,9 @@ body.nav-open { overflow: hidden !important }
 .logo-img { height: 38px; width: auto; display: block }
 .f-logo-img { height: 36px; width: auto; display: block }
 @media (max-width: 768px) {
-  .logo-img { height: 30px }
-  .f-logo-img { height: 32px }
+  .logo-img { height: 30px !important }
+  .f-logo-img { height: 32px !important }
 }
 @media (max-width: 380px) {
-  .logo-img { height: 26px }
+  .logo-img { height: 26px !important }
 }
