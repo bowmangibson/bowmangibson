@@ -991,3 +991,14 @@ body.nav-open { overflow: hidden !important }
   /* f-bottom: stack copyright + legal links cleanly, no divider */
   .f-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important }
 }
+
+/* ── Wordmark logo images (v99) — replaces icon+text lockup ── */
+.logo-img { height: 38px; width: auto; display: block }
+.f-logo-img { height: 36px; width: auto; display: block }
+@media (max-width: 768px) {
+  .logo-img { height: 30px }
+  .f-logo-img { height: 32px }
+}
+@media (max-width: 380px) {
+  .logo-img { height: 26px }
+}
